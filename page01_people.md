@@ -24,13 +24,6 @@ you're doing, or it will break the display of the authors.
 <!-- Define a new "article" environment, which is the object with author info -->
 <article class="post">
 
-<!-- Determine if an image is provided for the author, if not use a silhouette -->
-{% if author.img %}
-{% assign pic = author.img %}
-{% else %}
-{% assign pic = "noimg.jpg" %}
-{% endif %}
-
 <!-- Determine if a website is associated with the author, if not use a blank-->
 {% if author.link %}
 {% assign website = author.link %}
