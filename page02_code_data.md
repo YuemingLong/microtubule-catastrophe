@@ -1,8 +1,6 @@
 ---
 layout: page
 title: Code and Data
-img: code.png # Add image post (optional)
-permalink: code
 sidebar: true
 ---
 
