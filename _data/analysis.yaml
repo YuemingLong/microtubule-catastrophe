@@ -1,6 +1,125 @@
 title: >
   ""
 Analysis1: >
-  where analysis 1 goes
+  Our first task was to understand why the time to catastrophe may be gamma-distributed, as
+  Gardner et. al. proposed to model them. The idea behind potentially using the gamma distribution
+  to describe microtubule catastrophe is that the catastrophe process is promoted by certain
+  factors, one of which was proposed in the paper to be kinesin-8 Kip3. These factors bind to 
+  a microtubule according to a Poisson process, a pattern that many biological processes exhibit.
+  Once a critical number of these factors have become bound to a specific microtubule (the number 
+  was found to be about 3 in the paper), the microtubule becomes much more prone to catastrophe. 
+  The gamma distribution can then describe this overall process because the gamma distribution 
+  represents the total time for a certain number of arrivals of a Poisson process. Thus, the gamma
+  distribution might work to model microtubule catastrophe by approximating the proposed biological
+  process of a critical number of catastrophe factors binding to the microtubule in the fashion
+  of a Poisson process.
 Analysis2: >
-  where analysis2 goes
+  We then wanted to understand the second model where we proposed that physically, two biochemical
+  processes have to happen in succession to trigger catastrophe, with each step in the process 
+  modeled using an exponential distribution, representing a Poisson process. Mathematically, we
+  wanted to derive the PDF for our model as follows.
+Analysis3: >
+  From the PDF of an exponential distribution, we know that
+  $$f(t;\beta_1) = \beta_1 e^{-\beta_1 t}$$
+  and 
+  $$ f(t;\beta_2) = \beta_2 e^{-\beta_2 t}.$$
+  The distribution that we are looking for is the distribution of the sum of the times for processes
+  1 and 2, which is given by the convolution of their two PDFs given above. The integral runs from
+  $0$ to $t$ because this is the domain on which the functions are defined since $\tau$ must be 
+  greater than $0$ for $\beta_1$ and must be less than $t$ for $\beta_2$.
+  $$\begin{aligned} f(t ; \beta_1, \beta_2) &= \int_0^t{f(\tau; \beta_1) \cdot f(t-\tau; \beta_2) d\tau} \\
+  &= \int_0^t{\beta_1 e^{-\beta_1 \tau} \cdot \beta_2 e^{-\beta_2 (t-\tau)}d\tau} \\
+  &= \beta_1 \beta_2 e^{-\beta_2 t} \frac{1}{\beta_2 - \beta_1} (e^{-\beta_2 \tau - \beta_1 \tau}) \Big|_0^t \\
+  &= \frac{\beta_1 \beta_2}{\beta_2 - \beta_1} e^{-\beta_2 t} (e^{\beta_2 t} e^{-\beta_1 t} - 1)\\
+  &= \frac{\beta_1 \beta_2}{\beta_2 - \beta_1} (e^{-\beta_1 t} - e^{-\beta_2 t}) \end{aligned}$$
+  Thus, we derived the PDF of the multi-step Poisson process from the PDFs of the individual component processes.
+Analysis4: >
+  To compare the two models, we needed to find the maximum likelihood estimates of each model's parameters.
+  To do so, we used numerical optimization methods (carried out in mle.py on this website) to find
+  point estimates and 95% confidence intervals.
+Analysis5: >
+  For the gamma-distributed model, the MLE for $\alpha$ is about 2.4 with a confidence interval of about
+  2.08 to 2.9 (depending on the random draw); the MLE for $\beta$ is about 0.0055 with a confidence interval
+  from about 0.0045 to 0.0068 (again, depending on randomness). These values suggest that generally two arrival
+  events are required before microtubule catastrophe starts, and by three arrival events, almost all microtubules
+  have undergone catastrophe. These events have an average arrival time of about 
+  $\frac{1}{\beta}=\frac{1}{0.0055\ s^{-1}}=181.82\ s$. These values for $\alpha$ and $\beta$ seem to make sense 
+  given the data. These results are also in agreement with the paper since they found that the MLE for 
+  $\alpha$ at 12 $\mu$M was 2.93.
+Analysis6: >
+  For the two-step model, the MLE for $\beta_1$ was about 0.0082, which was the same for $\beta_2$.
+  The 95% confidence intervals were found to be from about 0.0070 to about 0.0100 for $\beta_1$ and 
+  from about 0.0071 to about 0.0102 for $/beta2$. This suggests that the model is actually best when 
+  it reduces to a Gamma distribution with $\alpha = 2$.
+Analysis7: >
+  We then performed some exploratory analysis of the times to catastrophe at differing tubulin concentrations.
+  The plot developed for this is shown in the Interactive Figure page of this website. There are several
+  interesting features in the plot. In general, it seems that the time to catastrophe increases with 
+  concentration. There are several possible explanations for this. Since microtubules polymerize faster with 
+  higher tubulin concentration, at higher concentrations the microtubules will on average be longer. This may
+  suggest that longer microtubules are more stable than shorter ones, leading to a longer time to catastrophe
+  for higher concentrations. Another explanation is that at greater concentrations, tubulin makes up a greater
+  proportion of the molecules at the end of the microtubule where synthesis is occurring while the factors 
+  that are associated with depolymerization make up a smaller proportion. This means that there is greater
+  time between interactions between the microtubule and the depolymerization factor because it is less 
+  likely to interact, leading to a longer time to catastrophe.
+Analysis8: >
+  To compare our two models we used the data collected at a tubulin concentration of 12 uM.
+  For model comparison, we first made Q-Q plots showing the observed data against simulated data drawn
+  from our theoretical distributions. These plots are Figures 3 and 4 on this website. From the Q-Q plots,
+  we see that the gamma-distributed model matches the data much better than the two-step process model, 
+  although the fit is still not great. At least the gamma model is close to the data near the bounds of the
+  plot and is somewhat close in the middle, but the two-step model misses the data entirely. One interesting
+  feature is that the shape of the Q-Q plot is essentially the same for both models, just at a different 
+  angle. This is presumably because $\beta_1 \approx \beta_2$, which means that the two-step model is
+  essentially a gamma distribution with $\alpha = 2$, so the two plots are essentially scaled versions of
+  one another according to the different parameters.
+Analysis9: >
+  We also generated predictive ECDFs from our theoretical distributions to perform model comparison. The
+  plots generated are Figures 5 and 6 on this website. From the predictive ECDFs we conclude that the 
+  gamma-distributed model is much better than the two-step process model. Again, we see the deviation 
+  for catastrophe times in the middle of the range, but it is much better than the gamma model, which
+  never comes close to the data's ECDF. This result makes sense given that $\beta_1 \approx \beta_2$
+  because in that limit, the two-step model becomes a gamma distribution with $\alpha = 2$, while the
+  gamma distribution model still has a free parameter in $\alpha$ to be able to better fit the data.
+Analysis10: >
+  As a final test, we calculated the Akaike weights for the models. The weight for the gamma model was
+  found to be essentially 0, and the weight for the two-step model was essentially 1 (the numbers were
+  so close to 0 and 1 that this is what the computer reports). Despite what the AIC tells us, we still
+  prefer the gamma model because it actually comes close to fitting the data, while the two-step model
+  is not even close. The counter-intuitive results for the Akaike weights are likely because of a very
+  broad log likelihood for the gamma model, while the two-step model must have a much sharper peak at 
+  where $\beta_1 \approx \beta_2$. In this case, the importance of the model fit outweighs (pun intended)
+  the somewhat arbitrary AIC, which is based on "information loss", so we will proceed using the 
+  gamma-distributed model.
+Analysis11: >
+  The final step was to compute parameter estimates for our preferred model (the gamma-distributed model)
+  using maximum likelihood estimation. We plotted the resulting point estimates and 95% confidence
+  intervals in Figures 7 and 8 on this website. For brevity, we will only report the point estimates
+  here. For 7 uM, $\alpha$ was 2.44 and $\beta$ was 0.0076. For 9 uM, $\alpha$ was 2.68 and $\beta$ was 0.0088.
+  For 10 uM, $\alpha$ was 3.21 and $\beta$ was 0.0090. For 12 uM, $\alpha$ was 2.92 and $\beta$ was 0.0077.
+  For 14 uM, $\alpha$ was 3.36 and $\beta$ was 0.0072.
+Analysis12: >
+  In general, it seems like $\alpha$ increases with concentration (with the exception of at 12 uM). 
+  There is not as distinct a trend for $\beta$, so perhaps the rate at which the event occurs is not 
+  very relevant when comparing across concentrations. In that case, the relevant factor is the number 
+  of times that the event occurs before catastrophe, given by $\alpha$. This also might explain why the
+  AIC in part b gave such counter-intuitive results. The value of $\beta$ is not particularly important
+  in modeling the data, which likely gives rise to a broad log likelihood, but from our graphical 
+  analysis, we know that the importance of $\alpha$ as a parameter makes the gamma model preferable 
+  to the two-step model.
+Analysis13: >
+  Given the biological context that we are working in, the parameter values may suggest the following: 
+  We know that the rate at which the event occurs doesn't vary much between concentrations 
+  ($\beta$ doesn't change significantly) but the number of events does ($\alpha$ has a strong and clear trend)
+  , and we know that at higher concentrations microtubules will polymerize faster. Suppose that catastrophe 
+  occurs when a certain number of events occur within a certain period of time. We know that catastrophe is 
+  likely caused by the binding of some molecule or molecules, so physically, we are considering the scenario
+  where a certain number of catastrophizing molecules (molecules that promote or cause catastrophe) bind 
+  within a certain region of the microtubule to create a sort of "catastrophizing density". Also suppose that
+  these molecules bind only at the end where polymerization is occurring. If the rate at which these molecules
+  bind a microtubule is roughly constant, as it seems to be from the parameter estimates, then at higher 
+  concentrations, it is harder for enough of the molecules to bind in a small enough region to trigger 
+  catastrophe because the microtubule is growing at a faster rate at higher concentrations. Thus, it takes
+  more of these events to occur before it happens that they occur close enough to generate a catastrophizing
+  density, resulting in a larger value of $\alpha$ at higher concentrations, which is what we saw in our analysis.
