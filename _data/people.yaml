@@ -9,23 +9,21 @@
 # of the `page01_people.md` file.
 # ##############################################################################
 - author:
-  name: Dr. Osophila
-  link: "https://en.wikipedia.org/wiki/Drosophila"
-  title: Postdoctoral Scholar
-  img: dr_osophila.jpg
-  institute: Bicoid Institute of Development
+  name: Haroula Baliaka
+  title: Graduate Student
+  institute: Caltech
   other_info:
-     Email Address: "flyguy@university.edu"
+     Email Address: "haroula@caltech.edu"
 - author:
-  name: Dr. Melanie O'Gaster
-  link: "https://en.wikipedia.org/wiki/Drosophila_melanogaster"
-  title: Postdoctoral Scholar
-  img: melanogaster.jpg
-  institute: French Flag Research Institute
+  name: Danny Collinson
+  title: Undergraduate Student
+  institute: Caltech
   other_info:
-    Current Location: Apple Juice Plates, Inc
+     Email Address: "dannycollinson12@gmail.com"
 
 - author:
-  name: Sally Monella
-  title: Research Technician
-  institute: French Flag Research Institute
+  name: Yueming Long
+  title: Graduate Student
+  institute: Caltech
+  other_info:
+     Email Address: "ylong@caltech.edu"
