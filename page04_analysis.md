@@ -11,7 +11,7 @@ sidebar: true
 ---
 
 
-# {{"Analysis}}
+# {{site.data.analysis.title}}
 
 {% for entry in site.data.analysis %}
 
