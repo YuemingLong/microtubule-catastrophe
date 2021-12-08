@@ -2,6 +2,7 @@
 layout: page
 title: About
 description: Information about the project, website, and links to the paper and SI
+permalink: index.html
 sidebar: true
 ---
 
