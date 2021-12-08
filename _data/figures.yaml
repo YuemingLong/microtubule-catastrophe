@@ -82,7 +82,7 @@
       link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
       
 - fig: 
-  title: "Fig. 7: Estimates of beta at varying tubulin concentration"
+  title: "Fig. 8: Estimates of beta at varying tubulin concentration"
   filename: concentration.py
   desc:
         Used to generate Figures 7 and 8
