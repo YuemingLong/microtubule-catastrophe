@@ -2,7 +2,7 @@
 layout: page
 title: Code and Data
 img: 
-permalink:code
+permalink: code
 sidebar: true
 ---
 
