@@ -1,43 +1,94 @@
 - fig:
-  title: "Fig. 1: Paleo cardigan kombucha, pickled brunch shabby chic "
-  filename: script1.py
-  desc:  Used to generate the figure1
-  pic: fig1.png
+  title: "Fig. 1: ECDFs comparing times to catstrophe for labeled and unlabeled tubulin."
+  filename: labeling_control.py
+  desc:  Used to generate Figure 1.
+  pic: labeling_ecdfs.png
   req:
     - ds: 
       storage: remote
-      title: Dataset 1
-      link: "http://data.caltech.edu"
+      title: Microtubule catastrophe times for labeled and unlabeled tubulin
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_time_to_catastrophe_dic_tidy.csv
+      
+- fig:
+  title: "Fig. 2: ECDFs comparing times to catastrophe at varying tubulin concentrations"
+  filename: comparison.py
+  desc: 
+      Used to generate Figures 2-6.
+  pic: concentration_ecdfs.png
+  req:
+    - ds:
+      title: Microtubule catastrophe times at varying tubulin concentrations
+      storage: remote
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
 
 - fig:
-  title: "Fig. 2: Activated charcoal tilde kombucha. "
-  filename: script2.py
+  title: "Fig. 3: Q-Q plot comparing the gamma-distributed model to observed data at 12 uM"
+  filename: comparison.py
   desc: 
-      Used to generate Figure 2, illustrating activated kombucha on tap.
-  pic: fig2.png
+      Used to generate Figures 2-6.
+  pic: gamma_qq.png
   req:
     - ds:
-      title: Kombucha tempura desconstructed measures
-      storage: local 
-      link: dataset2.csv
-    - ds: 
-      storage: local
-      title: Gravitational wave lo-fi beats to chill and study to
-      link: dataset2.csv
+      title: Microtubule catastrophe times at varying tubulin concentrations
+      storage: remote
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
+
+- fig:
+  title: "Fig. 4: Q-Q plot comparing the two-step model to observed data at 12 uM"
+  filename: comparison.py
+  desc: 
+      Used to generate Figures 2-6.
+  pic: two_step_qq.png
+  req:
+    - ds:
+      title: Microtubule catastrophe times at varying tubulin concentrations
+      storage: remote
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
+      
+- fig:
+  title: "Fig. 5: Predictive ECDF comparing the gamma-distributed model to observed data at 12 uM"
+  filename: comparison.py
+  desc: 
+      Used to generate Figures 2-6.
+  pic: gamma_pred_ecdf.png
+  req:
+    - ds:
+      title: Microtubule catastrophe times at varying tubulin concentrations
+      storage: remote
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
+      
+- fig:
+  title: "Fig. 6: Predictive ECDF comparing the two-step model to observed data at 12 uM"
+  filename: comparison.py
+  desc: 
+      Used to generate Figures 2-6.
+  pic: two_step_pred_ecdf.png
+  req:
+    - ds:
+      title: Microtubule catastrophe times at varying tubulin concentrations
+      storage: remote
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
 
 - fig: 
-  title: "Fig. 5: Sustainable pour-over VHS"
-  filename: script1.py
+  title: "Fig. 7: Estimates of alpha at varying tubulin concentration"
+  filename: concentration.py
   desc:
-        Used to generate Figure 5, 
-  pic: fig3.png
+        Used to generate Figures 7 and 8
+  pic: alpha_concentration.png
   req:
     - ds:
-      title: Summarized dataset 1
-      storage: local
-      link: dataset1.csv
-
-    - ds:
-      title: Summarized dataset 2
+      title: Microtubule catastrophe times at varying tubulin concentrations
       storage: remote
-      link: "http://zenodo.org" 
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
+      
+- fig: 
+  title: "Fig. 7: Estimates of beta at varying tubulin concentration"
+  filename: concentration.py
+  desc:
+        Used to generate Figures 7 and 8
+  pic: beta_concentration.png
+  req:
+    - ds:
+      title: Microtubule catastrophe times at varying tubulin concentrations
+      storage: remote
+      link: https://s3.amazonaws.com/bebi103.caltech.edu/data/gardner_mt_catastrophe_only_tubulin.csv
