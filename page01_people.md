@@ -2,10 +2,7 @@
 layout: page
 title: People
 description: About the authors
-img: people.png 
-caption: "Looking directly at the eclipse."
-permalink: people
-sidebar: true
+]sidebar: true
 ---
 
 ---
