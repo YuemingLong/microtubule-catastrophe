@@ -29,7 +29,7 @@ Analysis3: >
   greater than $0$ for $\beta_1$ and must be less than $t$ for $\beta_2$.
   $$f(t ; \beta_1, \beta_2) = \int_0^t{f(\tau; \beta_1) \cdot f(t-\tau; \beta_2) d\tau}$$
   $$ = \int_0^t{\beta_1 e^{-\beta_1 \tau} \cdot \beta_2 e^{-\beta_2 (t-\tau)}d\tau}$$
-  $$ = \beta_1 \beta_2 e^{-\beta_2 t} \frac{1}{\beta_2 - \beta_1} (e^{-\beta_2 \tau - \beta_1 \tau}) \Big|_0^t$$
+  $$ = \beta_1 \beta_2 e^{-\beta_2 t} \frac{1}{\beta_2 - \beta_1} (e^{-\beta_2 \tau - \beta_1 \tau}) ]_0^t$$
   $$ = \frac{\beta_1 \beta_2}{\beta_2 - \beta_1} e^{-\beta_2 t} (e^{\beta_2 t} e^{-\beta_1 t} - 1)$$
   $$ = \frac{\beta_1 \beta_2}{\beta_2 - \beta_1} (e^{-\beta_1 t} - e^{-\beta_2 t})$$
   Thus, we derived the PDF of the multi-step Poisson process from the PDFs of the individual component processes.
