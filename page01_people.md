@@ -2,7 +2,8 @@
 layout: page
 title: People
 description: About the authors
-]sidebar: true
+permalink: people
+sidebar: true
 ---
 
 ---
