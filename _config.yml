@@ -20,7 +20,7 @@ social-email: username@hostname.com
 
 # You can include a logo for your work as a .png that is saved in the folder 
 # 'assets/img/'. If you want a logo to show up, put the filename of the logo here
-author-img: logo.png # Comment this line out if you don't want a logo
+author-img: Bebi_Logo.png # Comment this line out if you don't want a logo
 
 
 # Build settings for the website. Do not modify this unless you know what you
