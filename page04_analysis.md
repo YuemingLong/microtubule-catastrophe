@@ -14,6 +14,6 @@ sidebar: true
 # {{site.data.analysis.title}}
 
 {% for entry in site.data.analysis %}
-
-{{entry[0]}}
+{% if entry[0] != 'title' %}
+{{entry[1]}}
 {% endfor %}
