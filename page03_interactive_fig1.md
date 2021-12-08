@@ -1,17 +1,15 @@
 ---
 layout: page
-title: Interactive Figure 1
-permalink: interactive_a
+title: Interactive Figure
+permalink: interactive
 sidebar: true
-interactive: interactive_1.html
+interactive: concentration_ecdfs_interactive.html
 ---
 ---
 
 ## Figure Description
-Below is an example of an embedded interactive figure. It generates
-two-dimensional random walks of 10,000 steps each time the button is clicked.
-Moving the slider shows you in finer detail the position and history of the past
-500 steps.
+Below are the ECDFs of time to microtubule catstrophe at different tubilin concentrations.
+Click on the toolbar to be able to zoom, and use the legend to toggle different ECDFs on and off.
 
 <!-- The below line includes the interactive figure. Do not change! -->
 <center>
