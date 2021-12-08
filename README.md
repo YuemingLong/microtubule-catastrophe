@@ -1,7 +1,7 @@
-# Reproducible Research Website Template
-This repository is a bare-bones template website for publishing of your work as
-an interactive website. It's tailored for easy inclusion of data files, plots,
-and interactive figures. It is a heavily modified form of the Jekyll template
+# Modeling Microtubule Time to Catastrophe
+This repository is used to publish a website displaying our work on 
+microtubule catastrophe data from Caltech's BE/Bi 103a.
+It is a heavily modified form of the Jekyll template
 [Flexible Jekyll](https://artemsheludko.github.io/flexible-jekyll/) by
 [`@artemsheludko`](https://github.com/artemsheludko). It is originally published
 under the [GNU General Public License
