@@ -2,6 +2,8 @@
 layout: page
 title: About
 description: Information about the project, website, and links to the paper and SI
+img:
+caption:
 permalink: index.html
 sidebar: true
 ---
