@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Code and Data
+img: 
+permalink: code
 sidebar: true
 ---
 
