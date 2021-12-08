@@ -1,11 +1,27 @@
 - script:
-  name: script1.py
+  name: labeling_control.py
   desc: >
-    Super fancy script which calcualate some complicated stuff with
-    well-documented code.
+    Looks at the data for microtubule catastrophe with labeled
+    and unlabeled tubulin to see if there is a difference in 
+    their distributions by plotting their ECDFs, constructing
+    confidence intervals for the mean time to catastrophe,
+    and performing a permutation test.
 - script:
-  name: script2.py
+  name: mle.py
   desc: >
-    Yet another script that does something-or-other.
-
-
+    Looks at the labeled tubulin data to compute the maximum
+    likelihood estimates with confidence intervalsvfor the
+    parameters of the gamma-distributed model and the two-step model.
+- script:
+  name: comparison.py
+  desc: >
+    Looks at the data with a 12 uM tubulin concentration to perform
+    model comparison between the gamma-distributed model 
+    and the two-step model using Q-Q plots, predictive ECDFs,
+    and the Akaike Information Criterion.
+- script:
+  name: concentration.py
+  desc: >
+    Looks at the catastrophe times for different concentrations of
+    tubulin and calculates maximum likelihood estimates for the 
+    gamma-distributed model for each concentration.
