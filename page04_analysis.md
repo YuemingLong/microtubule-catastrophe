@@ -10,9 +10,6 @@ sidebar: true
 
 ---
 
-
-# {{site.data.analysis.title}}
-
 {% for entry in site.data.analysis %}
 {% if entry[0] != 'title' %}
 {{entry[1]}}
