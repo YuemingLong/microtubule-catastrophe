@@ -16,6 +16,4 @@ sidebar: true
 {% for entry in site.data.analysis %}
 
 {{entry[0]}}
-{% endif %}
-{% endif %}
 {% endfor %}
